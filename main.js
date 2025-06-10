@@ -4,7 +4,10 @@ deleteBtn.addEventListener("click", () => {
 });
 
 
-function getUser(){
+function Enter(){
+    document.addEventListener("enter",()=>{
+        
+    })
 
 }
 
