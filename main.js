@@ -4,12 +4,17 @@ deleteBtn.addEventListener("click", () => {
 });
 
 
-function Enter(){
-    document.addEventListener("enter",()=>{
-        
-    })
+var enterKey = document.getElementById("phone");
+enterKey.addEventListener("keydown",(event)=>{
+    if(event.key ==="Enter"){
+        event.preventDefault();
+        /*create object to take all possible  user inputs
+            id:document.getElementById("idname").valu.trim()
+        */
+        validate(userInput);
+    }
+});
 
-}
 
 function validate(userInput){  //validate all user input 
     if( !userInput.checkValidity()){
