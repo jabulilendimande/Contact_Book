@@ -20,3 +20,9 @@ form{
     border-radius: 5px;
     padding: 20px 150px 20px 150px;
 }
+.users{
+    padding:200px;
+}
+.users,table,tr ,td{
+    gap:40px;
+}

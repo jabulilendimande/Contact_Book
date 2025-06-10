@@ -39,4 +39,5 @@ function validate(userInput){  //validate all user input
             }
             break;
     }
+    return true;
 }
