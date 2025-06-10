@@ -21,8 +21,28 @@ form{
     padding: 20px 150px 20px 150px;
 }
 .users{
-    padding:200px;
+    background-color: grey;
+    padding:100px;
 }
-.users,table,tr ,td{
-    gap:40px;
+
+/*styling the table*/
+#userInfo{
+    border-collapse: collapse;
+            margin: 20px auto;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            width: 300px;
+  
 }
+#userInfo td {
+    padding: 15px;
+    vertical-align: middle;
+}
+#userInfo td:first-child {
+    border: 4px solid #333;
+}
+#userInfo td:last-child {
+    border: 4px solid #333;
+}
+
+

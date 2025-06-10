@@ -41,3 +41,20 @@ function validate(userInput){  //validate all user input
     }
     return true;
 }
+let count = 0;
+var refresh  = document.getElementById("refresh-btn");
+refresh.addEventListener("click",()=>{
+    const table = document.getElementById("userInfo");
+    const row = doucument.createElement("tr");
+    const imageCell = document.createElement("td");//user name
+    const textCell = document.createElement("td"); //user surname
+
+    // Add cells to row
+            row.appendChild(imageCell);
+            row.appendChild(textCell);
+
+            // Append row to table
+            table.appendChild(row);
+
+            count++;
+});
