@@ -11,7 +11,7 @@ enterKey.addEventListener("keydown",(event)=>{
     if(event.key ==="Enter"){
         event.preventDefault();
         /*create object to take all possible  user inputs
-            id:document.getElementById("idname").valu.trim()
+            id = document.getElementById("idname").value.trim()
         */
         validate(userInput);
     }
