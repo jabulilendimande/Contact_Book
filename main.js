@@ -68,3 +68,6 @@ refresh.addEventListener("click",()=>{
 
             count++;
 });
+
+var name = document.getElementById("name");
+var surname = document.getElementById("surname");
