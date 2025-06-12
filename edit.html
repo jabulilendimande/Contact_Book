@@ -8,16 +8,20 @@
     </head>
     <body>
         <div class="user-form">
-            <form class="edit-btn">
-                <label>Name: <input type="text" /> </label>
-                <label>Surname: </label> <input type="text"/>
-                <label>Email</label> <input type="email"/>
-                <label>Phone</label> <input type="number"/>
+            <div id="avataImage">
+
+            </div>
+            <form class="edit-btn" id="editForm">
+                
+                <label>Name:  </label> <input type="text"  readonly/>
+                <label>Surname: </label> <input type="text" readonly/>
+                <label>Email</label> <input type="email" readonly/>
+                <label for="phone">Phone</label> <input id="phone" name="pbone" type="number" readonly/>
       
             </form>
             <section id="btn-container">
                 <button type="button" onclick="window.location.href='index.html';">Home</button>
-                <button type="button" onclick="window.location.href='add.html';">Edit</button>
+                <button type="button" id="editPage">Edit</button>
                 <button type="button" id="delete">Delete</button>
             </section>
         </div>
