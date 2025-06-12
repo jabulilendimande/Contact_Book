@@ -16,10 +16,13 @@ output = "<table>";
 for(a in data){  /*iterate through object array*/
     output += `
         <tr>
-            <td><img src=""/></td>
+            <td><img src="${rootPath}controller/uploads/${data[a].avatar}" width="40px"/></td>
+            <td> <h5> ${data[a].firstname} </h5> </td>
+            <td> <h5> ${data[a].lastname} </h5> </td>
         </tr>
     `
-
 }
+output += "</table>";
+document.getElementById("table").innerHTML = output;
 
 }
