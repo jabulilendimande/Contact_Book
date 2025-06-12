@@ -81,4 +81,7 @@ function submitForm(e){
     })
 
 }
+function homelink(){
+    window.open("index.html","_self");
+}
 
