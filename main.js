@@ -75,7 +75,7 @@ function submitForm(e){
     })  /* return 1  or 0*/
     .then(function(data){
         if(data=="1"){
-            alert("Cintact added.");
+            alert("Contact added.");
             homeLink();
         }else{
             alert(data);
