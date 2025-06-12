@@ -10,7 +10,21 @@ function editContact(id){
     window.open("edit.html?id=" + id, "_self");
 
 }
-
+var id = getID();
+function getID(){
+    var url = window.location.href;
+    var position = url.search("=");
+    var id = url.slice(position +1);
+}
+function getContact(){
+    fetch(rootPath+'controller/get-contacts/?id='+id)
+    .then(function(response){
+        return response.json();
+    })
+    .then(function(data){
+        //displayContactinfo
+    })
+}
 
 
 /*FOR ADD BUTTON*/
@@ -109,7 +123,6 @@ function fetchContacts(){
         //console.log(data);
     })
 }
-
 function displayOutput(data){ //data is the object
 /*display as a table format*/
 output = "<table>";
