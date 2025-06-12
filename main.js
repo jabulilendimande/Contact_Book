@@ -99,7 +99,7 @@ function homeLink(){
 
 
 /*add api function*/
-function fetchConntacts(){
+function fetchContacts(){
     fetch(rootPath + "contoller/get-contacts/")
     .then(function(response){ /*call back function*/
         return response.json();
