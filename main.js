@@ -15,6 +15,7 @@ function getID(){
     var url = window.location.href;
     var position = url.search("=");
     var id = url.slice(position +1);
+    return id;
 }
 function getContact(){
     fetch(rootPath+'controller/get-contacts/?id='+id)
@@ -22,8 +23,14 @@ function getContact(){
         return response.json();
     })
     .then(function(data){
-        //displayContactinfo
+        displayContactinfo();
     })
+}
+function displayContactinfo(){
+    avatarImg =`
+        <img src=" ${rootPath}controller/uploads/${data[0].avatar} "/>
+    ` 
+    document.getElementById("avatarImage").innerHTML = "";
 }
 
 
