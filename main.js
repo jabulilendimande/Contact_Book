@@ -4,8 +4,8 @@ deleteBtn.addEventListener("click", () => {
     /*DELETE img , name ,username from tablename
     */
 });
+document.getElementById("homeLink").addEventListener("click",homeLink);
 
-var editBtn = document.getElementById("")
 function editContact(id){
     window.open("edit.html?id=" + id, "_self");
 
@@ -27,17 +27,19 @@ function getContact(){
 }
 
 
-/*FOR ADD BUTTON*/
+/*FOR ADD BUTTON
 var enterKey = document.getElementById();
 enterKey.addEventListener("keydown",(event)=>{
     if(event.key ==="Enter"){
         event.preventDefault();
         /*create object to take all possible  user inputs
             id = document.getElementById("idname").value.trim()
-        */
+        
         validate(userInput);
     }
-});
+});*/
+
+//button uses onclick
 function addContact(){
     window.open("add.html", "_self");
 }
@@ -81,9 +83,9 @@ var refreshBtn  = document.getElementById("refresh-btn");
 refreshBtn.addEventListener("click",fetchContacts());
 
 document.getElementById("submitForm").addEventListener("click",submitForm);
-document.getElementById("homeLink").addEventListener('click',homeLink);
 
-function submitForm(e){
+
+function submitForm(e){ //add button uses submitForm
     e.preventDefault();
     const form = new FormData(document.querySelector('#main-user'));
     form.append('apiKey', apiKey);
@@ -107,10 +109,10 @@ function submitForm(e){
     })
 
 }
+
 function homeLink(){
     window.open("index.html","_self");
 }
-
 
 /*add api function*/
 function fetchContacts(){
