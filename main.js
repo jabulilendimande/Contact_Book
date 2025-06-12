@@ -53,6 +53,14 @@ function editContact(){
 
 }
 
+function submitFormEdit(e){
+    e.preventDefault();
+    const formEdit = new FormData(document.querySelector('#editForm'));
+    formEdit.append('apiKey',apiKey);
+    formEdit.append("id",id);
+
+}
+
 
 
 //button uses onclick
@@ -98,18 +106,18 @@ function validate(userInput){  //validate all user input
 var refreshBtn  = document.getElementById("refresh-btn");
 refreshBtn.addEventListener("click",fetchContacts());
 
-document.getElementById("submitForm").addEventListener("click",submitForm);
+document.getElementById("submitForm-add").addEventListener("click",submitForm);
 
 
 function submitForm(e){ //add button uses submitForm
     e.preventDefault();
-    const form = new FormData(document.querySelector('#main-user'));
-    form.append('apiKey', apiKey);
+    const formAdd = new FormData(document.querySelector('#main-user'));
+    formAdd.append('apiKey', apiKey);
     /*submit form data to the server*/
     fetch(rootPath + 'controller/insert-contact',{
         method:'POST',
         headers:{'Accept': 'application/json, *.*'},
-        body: form
+        body: formAdd
     })
     .then( function(response){
         return response.text();
