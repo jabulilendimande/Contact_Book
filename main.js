@@ -52,8 +52,13 @@ function validate(userInput){  //validate all user input
     return true;
 }
 let count = 0;
-var refresh  = document.getElementById("refresh-btn");
-refresh.addEventListener("click",()=>{
+
+// making refresh button responsive
+var refreshBtn  = document.getElementById("refresh-btn");
+refreshBtn.addEventListener("click",fetchContacts());
+
+
+   /* ()=>{
     const table = document.getElementById("userInfo");
     const row = doucument.createElement("tr");
     const imageCell = document.createElement("td");//user name
@@ -67,7 +72,6 @@ refresh.addEventListener("click",()=>{
             table.appendChild(row);
 
             count++;
-});
+});*/
 
-var name = document.getElementById("name");
-var surname = document.getElementById("surname");
+
