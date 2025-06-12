@@ -62,7 +62,11 @@ function submitForm(e){
     const form = new FormData(document.querySelector('#main-user'));
     form.append('apiKey', apiKey);
     /*submit form data to the server*/
-    fetch(rootPath + 'controller/insert-contact')
+    fetch(rootPath + 'controller/insert-contact',{
+        method:'POST',
+        headers:{'Accept': 'application/json, *.*'},
+        body: form
+    })
 
 }
 
