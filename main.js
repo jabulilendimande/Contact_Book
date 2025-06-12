@@ -58,7 +58,7 @@ var refreshBtn  = document.getElementById("refresh-btn");
 refreshBtn.addEventListener("click",fetchContacts());
 
 document.getElementById("submitForm").addEventListener("click",submitForm);
-
+document.getElementById("homeLink").addEventListener('click',homeLink);
 function submitForm(e){
     e.preventDefault();
     const form = new FormData(document.querySelector('#main-user'));
