@@ -5,8 +5,16 @@ deleteBtn.addEventListener("click", () => {
     */
 });
 
+var editBtn = document.getElementById("")
+function editContact(id){
+    window.open("edit.html?id=" + id, "_self");
+
+}
+
+
+
 /*FOR ADD BUTTON*/
-var enterKey = document.getElementById("phone");
+var enterKey = document.getElementById();
 enterKey.addEventListener("keydown",(event)=>{
     if(event.key ==="Enter"){
         event.preventDefault();
@@ -16,7 +24,9 @@ enterKey.addEventListener("keydown",(event)=>{
         validate(userInput);
     }
 });
-
+function addContact(){
+    window.open("add.html", "_self");
+}
 
 function validate(userInput){  //validate all user input 
     if( !userInput.checkValidity()){
@@ -51,7 +61,6 @@ function validate(userInput){  //validate all user input
     }
     return true;
 }
-let count = 0;
 
 // making refresh button responsive
 var refreshBtn  = document.getElementById("refresh-btn");
@@ -87,4 +96,36 @@ function submitForm(e){
 function homeLink(){
     window.open("index.html","_self");
 }
+
+
+/*add api function*/
+function fetchConntacts(){
+    fetch(rootPath + "contoller/get-contacts/")
+    .then(function(response){ /*call back function*/
+        return response.json();
+    })
+    .then(function(data){
+        displayOutput(data); /*make new helper function to prevent complex function*/
+        //console.log(data);
+    })
+}
+
+function displayOutput(data){ //data is the object
+/*display as a table format*/
+output = "<table>";
+for(a in data){  /*iterate through object array*/
+    output += `
+        <tr onclick="edit.html(${data[a].id})">
+            <td><img src="${rootPath}controller/uploads/${data[a].avatar}" width="40px"/></td>
+            <td> <h5> ${data[a].firstname} </h5> </td>
+            <td> <h5> ${data[a].lastname} </h5> </td>
+        </tr>
+    `
+}
+output += "</table>";
+document.getElementById("table").innerHTML = output;
+
+}
+
+
 
