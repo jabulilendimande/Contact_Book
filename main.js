@@ -61,5 +61,8 @@ function submitForm(e){
     e.preventDefault();
     const form = new FormData(document.querySelector('#main-user'));
     form.append('apiKey', apiKey);
+    /*submit form data to the server*/
+    fetch(rootPath + 'controller/insert-contact')
+
 }
 
