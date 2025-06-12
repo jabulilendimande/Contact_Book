@@ -46,6 +46,11 @@ function editContact(){
     document.getElementById("email").readOnly = false;
     document.getElementById("phone").readOnly = false;
 
+    document.getElementById("avatarLabel").hidden = false;
+    document.getElementById("avatar").hidden = false;
+
+    document.getElementById("submitForm").hidden = false;
+
 }
 
 
