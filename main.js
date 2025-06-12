@@ -1,9 +1,26 @@
+
+
 var deleteBtn = document.getElementById("delete");
-deleteBtn.addEventListener("click", () => {
-    alert("Delete user");
-    /*DELETE img , name ,username from tablename
-    */
-});
+deleteBtn.addEventListener("click", deleteContact);
+function deleteContact(){
+    var confirmDel = confirm("Delete user ?");
+    if(confirmDel){
+        fetch(rootPath + 'controller/delete-contact/?=' +id)
+        .then(function(response){
+            return response.text();
+        })
+        .then(function(data){
+            if(data=="1"){
+                homeLink();
+            }else{
+                alert(data);
+            }
+        })
+    }
+   // fetchContacts();
+}
+
+
 document.getElementById("homeLink").addEventListener("click",homeLink);
 
 function editContact(id){
@@ -54,21 +71,32 @@ function editContact(){
 }
 
 function submitFormEdit(e){
-    e.preventDefault();
+    e.preventDefault(); //prevent reloading
     const formEdit = new FormData(document.querySelector('#editForm'));
     formEdit.append('apiKey',apiKey);
     formEdit.append("id",id);
-
+    fetch(rootPath + 'controller/edit-contact',{
+        method:'POST',
+        headers:{'Accept': 'application/json, *.*'},
+        body: formAdd
+    })
+    .then( function(response){
+        return response.text();
+    }) 
+    .then(function(data){
+        if(data=="1"){
+            alert("Contact edited.");
+            homeLink();
+        }else{
+            alert(data);
+            homeLink();
+        }
+    })
 }
+document.getElementById("submitForm-edit").addEventListener("click",submitFormEdit);
 
 
-
-//button uses onclick
-function addContact(){
-    window.open("add.html", "_self");
-}
-
-function validate(userInput){  //validate all user input 
+function validate(userInput){  //validate all user input before submit
     if( !userInput.checkValidity()){
         document.getElementById(userInput.id + "-error").innerHTML = userInput.validationMessage;
         return false;
@@ -106,10 +134,11 @@ function validate(userInput){  //validate all user input
 var refreshBtn  = document.getElementById("refresh-btn");
 refreshBtn.addEventListener("click",fetchContacts());
 
-document.getElementById("submitForm-add").addEventListener("click",submitForm);
 
+//add button uses submitForm
+document.getElementById("submitForm-add").addEventListener("click",submitFormAdd);
 
-function submitForm(e){ //add button uses submitForm
+function submitFormAdd(e){ 
     e.preventDefault();
     const formAdd = new FormData(document.querySelector('#main-user'));
     formAdd.append('apiKey', apiKey);
@@ -167,16 +196,25 @@ document.getElementById("table").innerHTML = output;
 }
 
 
+/*FOR ADD page 
 
-/*FOR ADD BUTTON
+after user clicks submit > run before being posted on the database
 var enterKey = document.getElementById();
 enterKey.addEventListener("keydown",(event)=>{
     if(event.key ==="Enter"){
         event.preventDefault();
         /*create object to take all possible  user inputs
-            id = document.getElementById("idname").value.trim()
+            name = document.getElementById("name").value.trim()
+            surname = document.getElementById("surname").value.trim()
+            email = document.getElementById("email").value.trim()
+            phone = document.getElementById("phone").value.trim()
         
         validate(userInput);
     }
 });*/
+//button uses onclick
+function addContact(){
+    window.open("add.html", "_self");
+}
+
 
