@@ -59,6 +59,7 @@ refreshBtn.addEventListener("click",fetchContacts());
 
 document.getElementById("submitForm").addEventListener("click",submitForm);
 document.getElementById("homeLink").addEventListener('click',homeLink);
+
 function submitForm(e){
     e.preventDefault();
     const form = new FormData(document.querySelector('#main-user'));
@@ -75,15 +76,15 @@ function submitForm(e){
     .then(function(data){
         if(data=="1"){
             alert("Cintact added.");
-            //link to homepage
+            homeLink();
         }else{
             alert(data);
-            //link to homepage
+            homeLink();
         }
     })
 
 }
-function homelink(){
+function homeLink(){
     window.open("index.html","_self");
 }
 
