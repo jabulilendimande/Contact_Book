@@ -2,9 +2,11 @@
 <html>
     <head>
         <link href="styles.css" rel="stylesheet"/>
-        <script src="main.js" defer></script>
+        
         <meta name="viewport"  content="width=device-width, initial-scale=1.0">
         <meta charset="utf-8">
+        <script src="main.js" defer></script>
+        <script src="config.js" defer></script>
     </head>
     <body>
         <div class="user-form">
@@ -17,10 +19,13 @@
                 <label>Surname: </label> <input type="text" readonly/>
                 <label>Email</label> <input type="email" readonly/>
                 <label for="phone">Phone</label> <input id="phone" name="pbone" type="number" readonly/>
+
+                <label for="avatar" id="avatarLabel" hidden>Change image</label> <input type="file" name="avatar" id="avatar" hidden>
+                <button type="submit" id="submitForm" hidden>Submit</button>
       
             </form>
             <section id="btn-container">
-                <button type="button" onclick="window.location.href='index.html';">Home</button>
+                <button type="button"  id="homeLink">Home</button>
                 <button type="button" id="editPage">Edit</button>
                 <button type="button" id="delete">Delete</button>
             </section>
