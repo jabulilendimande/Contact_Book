@@ -30,7 +30,7 @@ function displayContactinfo(){
     avatarImg =`
         <img src=" ${rootPath}controller/uploads/${data[0].avatar} width="200""/>
     ` 
-    document.getElementById("avatarImage").innerHTML = "";
+    document.getElementById("avatarImage").innerHTML = avatarImg;
 }
 
 
