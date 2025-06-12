@@ -31,20 +31,24 @@ function displayContactinfo(){
         <img src=" ${rootPath}controller/uploads/${data[0].avatar} width="200""/>
     ` 
     document.getElementById("avatarImage").innerHTML = avatarImg;
+    document.getElementById("name").value = `${data[0].firstname}`;
+    document.getElementById("surname").value = `${data[0].lasttname}`;
+    document.getElementById("email").value = `${data[0].email}`;
+    document.getElementById("phone").value = `${data[0].mobile}`;
+}
+
+//make contact editable 
+document.getElementById("editPage").addEventListener("click",editContact);
+
+function editContact(){
+    document.getElementById("name").readOnly = false;
+    document.getElementById("surname").readOnly = false;
+    document.getElementById("email").readOnly = false;
+    document.getElementById("phone").readOnly = false;
+
 }
 
 
-/*FOR ADD BUTTON
-var enterKey = document.getElementById();
-enterKey.addEventListener("keydown",(event)=>{
-    if(event.key ==="Enter"){
-        event.preventDefault();
-        /*create object to take all possible  user inputs
-            id = document.getElementById("idname").value.trim()
-        
-        validate(userInput);
-    }
-});*/
 
 //button uses onclick
 function addContact(){
@@ -150,4 +154,16 @@ document.getElementById("table").innerHTML = output;
 }
 
 
+
+/*FOR ADD BUTTON
+var enterKey = document.getElementById();
+enterKey.addEventListener("keydown",(event)=>{
+    if(event.key ==="Enter"){
+        event.preventDefault();
+        /*create object to take all possible  user inputs
+            id = document.getElementById("idname").value.trim()
+        
+        validate(userInput);
+    }
+});*/
 
