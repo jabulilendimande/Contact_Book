@@ -10,8 +10,9 @@
     
     <body onload="fetchContacts()">
         <section class="users">
-            <table readonly id="userInfo">
-                <tr>
+            <table readonly class="userInfo" id="table">
+                <!--
+                <tr></tr>
                     <th>Authors Picture</th>
                     <th>Name</th>
                     <th>Surname</th>
@@ -24,11 +25,11 @@
                         <label id="name" class="clickable" onclick="window.location.href='edit.html';"></label>
                         <label id="surname" class="clickable" onclick="window.location.href='edit.html';"></label>
                     </td>
-                </tr>
+                </tr>-->
             </table>
                   <!--info get using sql*/-->
             <section id="btn-container">
-                <button type="submit">Refresh</button>
+                <button type="submit" id="refresh-btn">Refresh</button>
                 <button type="submit" onclick="window.location.href='add.html';">Add  Contact</button>
             </section>
         </section>
