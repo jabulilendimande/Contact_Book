@@ -5,7 +5,7 @@ deleteBtn.addEventListener("click", () => {
     */
 });
 
-
+/*FOR ADD BUTTON*/
 var enterKey = document.getElementById("phone");
 enterKey.addEventListener("keydown",(event)=>{
     if(event.key ==="Enter"){
