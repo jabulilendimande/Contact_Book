@@ -74,6 +74,9 @@ function submitForm(e){
         if(data=="1"){
             alert("Cintact added.");
             //link to homepage
+        }else{
+            alert(data);
+            //link to homepage
         }
     })
 
