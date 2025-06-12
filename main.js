@@ -57,21 +57,7 @@ let count = 0;
 var refreshBtn  = document.getElementById("refresh-btn");
 refreshBtn.addEventListener("click",fetchContacts());
 
-
-   /* ()=>{
-    const table = document.getElementById("userInfo");
-    const row = doucument.createElement("tr");
-    const imageCell = document.createElement("td");//user name
-    const textCell = document.createElement("td"); //user surname
-
-    // Add cells to row
-            row.appendChild(imageCell);
-            row.appendChild(textCell);
-
-            // Append row to table
-            table.appendChild(row);
-
-            count++;
-});*/
-
+function submitForm(e){
+    e.preventDefault();
+}
 
