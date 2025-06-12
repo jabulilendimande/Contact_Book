@@ -67,6 +67,15 @@ function submitForm(e){
         headers:{'Accept': 'application/json, *.*'},
         body: form
     })
+    .then( function(response){
+        return response.text();
+    })  /* return 1  or 0*/
+    .then(function(data){
+        if(data=="1"){
+            alert("Cintact added.");
+            //link to homepage
+        }
+    })
 
 }
 
