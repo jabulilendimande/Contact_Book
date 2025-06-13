@@ -6,53 +6,64 @@ body{
 
 
 /*add and edit pages*/
-.user-form{
+.user-form {
     background-color:white;
     color:black;
     /*padding  top  right bottom left*/
-    height: 50vw;
-    width:80vh;
+    padding: 100px 200px 150px 200px;
     position:absolute;
-    top:50%;
     left:50%;
-    transform: translate(-50%, -50%);
+    top:50%;
+    transform: translate(-50%,-50%);
     display:flex;
     align-items: center;
     justify-content: center;
 
 }
+input{
+    border: 2px solid black;
+}
+
 .main-form{
-    
-   gap:40px;
-   display: flex;
+    gap:20px;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
     border: 3px solid black;
     border-radius: 3px;
-    width: 50%; /* Half of .user-form's width */
-    height: 50%; /* Half of .user-form's height */
     text-align: center;
+    padding: 100px 200px 150px 200px;
     
 }
-
+form{
+    border-radius: 5px;
+    padding: 20px 150px 20px 150px;
+}
 
 #btn-container{
+    position:absolute;
     padding:20px;
     display:flex;
     gap: 30px;
+    bottom:20px;
+    left:300px;
+    transform: translate(-50%);
 }
-button{  /*style all buttons*/
+
+/*style all buttons*/
+button{  
     border:2px solid black;
     border-radius: 5px ;
     cursor: pointer;
 }
 
-form{
-    border-radius: 5px;
-    padding: 20px 150px 20px 150px;
+/*style the index.html page*/
+.users{
+    color: white;
 }
+
+
 
 
 
