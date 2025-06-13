@@ -9,17 +9,41 @@ body{
 .user-form{
     background-color:white;
     color:black;
-    padding: 100px;
-    height:400px;
-    width:400px;
+    /*padding  top  right bottom left*/
+    height: 50vw;
+    width:80vh;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
 }
+.main-form{
+    
+   gap:40px;
+   display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    border: 3px solid black;
+    border-radius: 3px;
+    width: 50%; /* Half of .user-form's width */
+    height: 50%; /* Half of .user-form's height */
+    text-align: center;
+    
+}
+
 
 #btn-container{
     padding:20px;
     display:flex;
     gap: 30px;
 }
-button{
+button{  /*style all buttons*/
     border:2px solid black;
     border-radius: 5px ;
     cursor: pointer;
@@ -29,4 +53,9 @@ form{
     border-radius: 5px;
     padding: 20px 150px 20px 150px;
 }
+
+
+
+
+
 
