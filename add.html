@@ -17,7 +17,11 @@
                 <li><a href="add.html">Add Student</a></li>
                 <li><a href="edit.html">Edit Student</a></li>
 
-            </ul>  
+            </ul>
+            <div class="search">
+                <i class='fas fa-search' style='font-size:30px;' id="search-icon"></i>
+                <input type="text" placeholder="search..."  id="search-bar"/>
+            </div>  
         </div>
         <h1 style="text-align: center;">Add New Student </h1>
         <div class="user-form">
@@ -29,7 +33,7 @@
                     <label for="email">Email</label> <input type="email" id="email" name="email"/>
                     <label for="phone">Phone</label> <input type="tel" id="phone" name="phone"/>  
                     
-                    <label>Add picture</label> <input type="file"/> 
+                    <label >Add picture</label> <input type="file" style="cursor:pointer;"/> 
 
                     <button type="submit" id="submitForm-add" >Submit</button>
             </form>
