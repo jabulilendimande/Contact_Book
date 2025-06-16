@@ -153,6 +153,7 @@ label {
     display: none;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
+    z-index:1000;
 }
 .nav-bar li{
     margin:10px 0;
@@ -162,7 +163,7 @@ label {
     text-decoration: none;
     color: white;
     font-size: 16px;
-    transition: color 0.3s ease;
+    transition: color 0.5s ease;
 }
 
 .nav-bar a:hover {
@@ -173,9 +174,10 @@ label {
     color: white;
     cursor: pointer;
 }
-.nav-bar:hover ul{
+.nav-bar i:hover + ul{
     display: block;
 }
+
 
 
 
