@@ -218,3 +218,16 @@ function addContact(){
 }
 
 
+var middle = document.getElementById('middle');
+var upper = document.getElementById('upper');
+function getMiidle(){
+    if(grade=middle){
+
+    }
+    fetch()
+    .then(function(response){
+        return response;
+
+    })
+}
+
