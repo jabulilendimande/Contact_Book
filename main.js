@@ -66,7 +66,7 @@ function editContact(){
     document.getElementById("avatarLabel").hidden = false;
     document.getElementById("avatar").hidden = false;
 
-    document.getElementById("submitForm").hidden = false;
+    document.getElementById("submitForm-edit").hidden = false;
 
 }
 

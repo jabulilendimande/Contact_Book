@@ -4,11 +4,24 @@
         <link href="styles.css" rel="stylesheet"/>
         <meta name="viewport"  content="width=device-width, initial-scale=1.0">
         <meta charset="utf-8">
-        <script src="config.js"></script>
-        <script src="main.js"></script>
+        <script src="main.js" defer></script>
+        <script src="config.js" defer></script> 
+        <title>Contact Book</title>
+        <!--<link rel="" type="image/" href="">-->
+
+       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
     </head>
     
     <body onload="fetchContacts()">
+        
+        <h1 style="text-align: center;">Students Contact Book</h1>
+        <div class="nav-bar">
+            <i class='fas fa-bars' style='font-size:36px;'></i>
+            <ul>
+                <li><a href="add.html">Add student</a></li>
+                <li><a href="edit.html">Edit Student</a></li>
+            </ul>  
+        </div>
         <div class="users">
             <table readonly class="userInfo" id="table">
                 
@@ -19,7 +32,18 @@
                 <button type="submit" onclick="window.location.href='add.html';">Add  Contact</button>
             </section>
         </div>
-            
+        
+        <footer class="footer-page">
+            <div id="student-grades">
+                <p> Grade R - Grade 3</p>
+                <p> Grade 4 - Grade 7</p>
+            </div>
+
+            <p id="contact-us">
+                <a href="#" class="fa-solid fa-location-dot" aria-label="Map Location"> <!--add map here--></a> Contact Book Avenue
+            </p>
+            <p id="copyright" style='left:0;right:50px;'>&copy; 2025 Contact Book </p>
+        </footer>
     </body>
 </html>
 
