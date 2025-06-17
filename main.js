@@ -45,7 +45,7 @@ function getContact(){
 }
 function displayContactinfo(){
     avatarImg =`
-        <img src=" ${rootPath}controller/uploads/${data[0].avatar} width="200""/>
+        <img src=" ${rootPath}controller/uploads/${data[0].avatar}" width="200"/>
     ` 
     document.getElementById("avatarImage").innerHTML = avatarImg;
     document.getElementById("name").value = `${data[0].firstname}`;
@@ -132,7 +132,7 @@ function validate(userInput){  //validate all user input before submit
 
 // making refresh button responsive
 var refreshBtn  = document.getElementById("refresh-btn");
-refreshBtn.addEventListener("click",fetchContacts());
+refreshBtn.addEventListener("click",fetchContacts);
 
 
 //add button uses submitForm
@@ -169,7 +169,7 @@ function homeLink(){
 
 /*add api function*/
 function fetchContacts(){
-    fetch(rootPath + "contoller/get-contacts/")
+    fetch(rootPath + "controller/get-contacts/")
     .then(function(response){ /*call back function*/
         return response.json();
     })
@@ -184,7 +184,7 @@ output = "<table>";
 for(a in data){  /*iterate through object array*/
     output += `
         <tr onclick="edit.html(${data[a].id})">
-            <td><img src="${rootPath}controller/uploads/${data[a].avatar}" width="40px"/></td>
+            <td><img src="${rootPath}controller/uploads/${data[a].avatar}" width="50px"/></td>
             <td> <h5> ${data[a].firstname} </h5> </td>
             <td> <h5> ${data[a].lastname} </h5> </td>
         </tr>
