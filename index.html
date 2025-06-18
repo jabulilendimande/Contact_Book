@@ -4,7 +4,7 @@
         <link href="styles.css" rel="stylesheet"/>
         <meta name="viewport"  content="width=device-width, initial-scale=1.0">
         <meta charset="utf-8">
-        <script src="main.js" defer></script>
+        <!--script src="main.js" defer></script-->
         <script src="config.js" defer></script> 
         <title>Contact Book</title>
         <!--<link rel="" type="image/" href="">-->
@@ -29,13 +29,13 @@
             
         </div>
         <div class="users">
-            <table readonly class="userInfo" id="table">
+            <div class="userInfo" id="table">
                 
-            </table>
+            </div>
                   <!--info get using sql*/-->
             <section id="btn-container">
-                <button type="submit" id="refresh-btn">Refresh</button>
-                <button type="submit" onclick="window.location.href='add.html';">Add  Contact</button>
+                <button type="button" id="refresh-btn">Refresh</button>
+                <button type="button" id="addContact">Add Contact</button>
             </section>
         </div>
         
@@ -50,6 +50,42 @@
             </p>
             <p id="copyright" style='left:0;right:50px;'>&copy; 2025 Contact Book </p>
         </footer>
+
+        <script>
+            // making refresh button responsive
+        document.getElementById("refresh-btn").addEventListener("click",fetchContacts);
+        
+            /*add api function*/
+            function fetchContacts(){
+                fetch(rootPath + "controller/get-contacts/")
+                .then(function(response){ /*call back function*/
+                    return response.json();
+                })
+                .then(function(data){
+                    displayOutput(data); /*make new helper function to prevent complex function*/
+                    //console.log(data);
+                })
+            }
+            function displayOutput(data){ //data is the object
+                    /*display as a table format*/
+                output = "<table>";
+                for(a in data){  /*iterate through object array*/
+                    output += `
+                        <tr onclick="edit.html(${data[a].id})">
+                            <td><img src="${rootPath}controller/uploads/${data[a].avatar}" width="50px"/></td>
+                            <td> <h5> ${data[a].firstname} </h5> </td>
+                            <td> <h5> ${data[a].lastname} </h5> </td>
+                        </tr>
+                             `
+            }
+            output += "</table>";
+            document.getElementById("table").innerHTML = output;
+
+            }
+            function addContact(){
+                window.open("add.html", "_self");
+            }
+        </script>
     </body>
 </html>
 

@@ -6,7 +6,7 @@
     
         <meta name="viewport"  content="width=device-width, initial-scale=1.0">
         <meta charset="utf-8">
-        <script src="main.js" defer></script>
+        <!--script src="main.js" defer></script-->
         <script src="config.js" defer></script>
     </head>
     <body onload="getContact()">
@@ -32,8 +32,8 @@
             </div>
             <form class="main-form" id="editForm">
                 
-                <label for="name">Name: </label> <input type="text" id="name" name="name" readonly/>
-                <label for="surname">Surname: </label> <input type="text" id="surname" name="surname" readonly/>
+                <label for="name">Name: </label> <input type="text" id="firstname" name="firstname" readonly/>
+                <label for="lastname">Surname: </label> <input type="text" id="lastname" name="lastname" readonly/>
                 <label for="email">Email: </label> <input type="email" id="email" name="email" readonly/>
                 <label for="phone">Phone: </label> <input type="tel" id="phone" name="phone" readonly/> 
 
@@ -42,11 +42,99 @@
       
             </form>
             <section id="btn-container">
-                <button type="submit" id="homeLink">Home</button>
-                <button type="submit" id="editPage">Edit</button>
-                <button type="submit" id="delete">Delete</button>
+                <button type="button" id="homeLink">Home</button>
+                <button type="button" id="editPage">Edit</button>
+                <button type="button" id="delete">Delete</button>
             </section>
         </div>
         
+
+
+    <script>
+        function submitFormEdit(e){
+            e.preventDefault(); //prevent reloading
+            const formEdit = new FormData(document.querySelector('#editForm'));
+            formEdit.append('apiKey',apiKey);
+            formEdit.append("id",id);
+            fetch(rootPath + 'controller/edit-contact',{
+                method:'POST',
+                headers:{'Accept': 'application/json, *.*'},
+                body: formEdit
+            })
+            .then( function(response){
+                return response.text();
+            }) 
+            .then(function(data){
+                if(data==="1"){
+                    alert("Contact edited.");
+                    homeLink();
+                }else{
+                    alert(data);
+                    homeLink();
+                }
+            })
+        }
+
+        //when home button is clicked , it should use homelink() to direct to index.html
+document.getElementById("homeLink").addEventListener("click",homeLink);
+
+        function homeLink(){
+            window.location.href = 'index.html';
+        }
+//make contact editable 
+document.getElementById("editPage").addEventListener("click",editContacts);
+
+        function editContacts(){
+            document.getElementById("firstname").readOnly = false;
+            document.getElementById("lastname").readOnly = false;
+            document.getElementById("email").readOnly = false;
+            document.getElementById("phone").readOnly = false;
+
+            document.getElementById("avatarLabel").hidden = false;
+            document.getElementById("avatar").hidden = false;
+
+            document.getElementById("submitForm-edit").hidden = false;
+
+        }
+        function getContact(){
+            fetch(rootPath+'controller/get-contacts/?id='+id)
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(data){
+                displayContactinfo();
+            })
+        }
+        function displayContactinfo(){
+            avatarImg =`
+                <img src=" ${rootPath}controller/uploads/${data[0].avatar}" width="200"/>
+            ` 
+            document.getElementById("avatarImage").innerHTML = avatarImg;
+            document.getElementById("name").value = `${data[0].firstname}`;
+            document.getElementById("surname").value = `${data[0].lasttname}`;
+            document.getElementById("email").value = `${data[0].email}`;
+            document.getElementById("phone").value = `${data[0].mobile}`;
+        }
+
+const deleteBtn = document.getElementById("delete");
+deleteBtn.addEventListener("click", deleteContact);
+
+        function deleteContact(){
+            var confirmDel = confirm("Delete user ?");
+            if(confirmDel){
+                fetch(rootPath + 'controller/delete-contact/?id=' +id)
+                .then(function(response){
+                    return response.text();
+                })
+                .then(function(data){
+                    if(data=="1"){
+                        homeLink();
+                    }else{
+                        alert(data);
+                    }
+                })
+            }
+        }
+    </script>
     </body>
 </html>
