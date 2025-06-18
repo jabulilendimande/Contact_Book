@@ -11,13 +11,15 @@
     </head>
     <body>
         <div class="nav-bar">
-            <i class='fas fa-bars' style='font-size:36px;'></i>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="add.html">Add Student</a></li>
-                <li><a href="edit.html">Edit Student</a></li>
-
-            </ul>
+            <div class="menu-w">
+                <i class='fas fa-bars' style='font-size:36px;'></i>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="add.html">Add Student</a></li>
+                    <li><a href="edit.html">Edit Student</a></li>
+                </ul>
+            </div>
+            
             <div class="search">
                 <i class='fas fa-search' style='font-size:30px;' id="search-icon"></i>
                 <input type="text" placeholder="search..."  id="search-bar"/>
@@ -43,7 +45,7 @@
         </div>
         <script>
         //add button uses submitForm
-        document.getElementById("submitForm-add").addEventListener("click",submitFormAdd);     
+        document.getElementById("main-user").addEventListener("click",submitFormAdd);     
         
         function submitFormAdd(e){ 
             e.preventDefault();

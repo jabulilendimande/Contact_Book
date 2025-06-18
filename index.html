@@ -16,11 +16,14 @@
         
         <h1 style="text-align: center;">Students Contact Book</h1>
         <div class="nav-bar">
-            <i class='fas fa-bars' style='font-size:36px;'></i>
-            <ul>
-                <li><a href="add.html">Add student</a></li>
-                <li><a href="edit.html">Edit Student</a></li>
-            </ul>  
+            <div class="menu-w">
+                <i class='fas fa-bars' style='font-size:36px;'></i>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="add.html">Add Student</a></li>
+                    <li><a href="edit.html">Edit Student</a></li>
+                </ul>
+            </div> 
             <!--add the search -->
             <div class="search">
                 <i class='fas fa-search' style='font-size:30px;' id="search-icon"></i>
@@ -54,8 +57,9 @@
         <script>
             
         // making refresh button responsive
-        var refreshBtn  = document.getElementById("refresh-btn");
-        refreshBtn.addEventListener("click",fetchContacts);
+        document.getElementById("refresh-btn").addEventListener("click",function(){
+            location.reload();
+        });
 
             /*add api function*/
             function fetchContacts(){
@@ -73,8 +77,8 @@
                 output = "<table>";
                 for(a in data){  /*iterate through object array*/
                     output += `
-                        <tr onclick="edit.html(${data[a].id})">
-                            <td><img src="${rootPath}controller/uploads/${data[a].avatar}" width="50px"/></td>
+                        <tr onclick="window.location.href='edit.html?id=${data[a].id}'">
+                            <td><img src="${rootPath}controller/uploads/${data[a].avatar}" width="80px"/></td>
                             <td> <h5> ${data[a].firstname} </h5> </td>
                             <td> <h5> ${data[a].lastname} </h5> </td>
                         </tr>
@@ -91,7 +95,7 @@
             }
 
         var id = getID();
-        
+
         function getID(){
             var url = window.location.href;
             var position = url.search("id=");
@@ -120,20 +124,3 @@
     </body>
 </html>
 
-
-
-<!--
-                <tr></tr>
-                    <th>Authors Picture</th>
-                    <th>Name</th>
-                    <th>Surname</th>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="" alt="bookPicture" id="book" class="clickable" onclick="window.location.href='edit.html';">
-                    </td>
-                    <td>
-                        <label id="name" class="clickable" onclick="window.location.href='edit.html';"></label>
-                        <label id="surname" class="clickable" onclick="window.location.href='edit.html';"></label>
-                    </td>
-                </tr>-->

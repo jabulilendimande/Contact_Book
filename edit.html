@@ -12,12 +12,14 @@
     <body onload="getContact()">
 
         <div class="nav-bar">
-            <i class='fas fa-bars' style='font-size:36px;'></i>
-            <ul>
-                <li><a href="index.html">Home student</a></li>
-                <li><a href="add.html">Add Student</a></li>
-                <li><a href="edit.html">Edit Student</a></li>
-            </ul>  
+            <div class="menu-w">
+                <i class='fas fa-bars' style='font-size:36px;'></i>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="add.html">Add Student</a></li>
+                    <li><a href="edit.html">Edit Student</a></li>
+                </ul>
+            </div> 
             <div class="search">
                 <i class='fas fa-search' style='font-size:30px;' id="search-icon"></i>
                 <input type="text" placeholder="search..."  id="search-bar"/>
@@ -67,7 +69,7 @@
                 return response.text();
             }) 
             .then(function(data){
-                if(data==="1"){
+                if(data=="1"){
                     alert("Contact edited.");
                     homeLink();
                 }else{
@@ -105,12 +107,12 @@ document.getElementById("editPage").addEventListener("click",editContacts);
                 return response.json();
             })
             .then(function(data){
-                displayContactinfo();
+                displayContactinfo(data);
             })
         }
-        function displayContactinfo(){
+        function displayContactinfo(data){
             avatarImg =`
-                <img src=" ${rootPath}controller/uploads/${data[0].avatar}" width="200"/>
+                <img src="${rootPath}controller/uploads/${data[0].avatar}" width="200"/>
             ` 
             document.getElementById("avatarImage").innerHTML = avatarImg;
             document.getElementById("firstname").value = `${data[0].firstname}`;
@@ -140,6 +142,15 @@ deleteBtn.addEventListener("click", deleteContact);
         }
         function editContact(id){
             window.location.href = 'edit.html';
+        }
+
+        var id = getID();
+
+        function getID(){
+            var url = window.location.href;
+            var position = url.search("=");
+            var id = url.slice(position +1);
+            return id;
         }
     </script>
     </body>
