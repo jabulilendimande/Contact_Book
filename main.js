@@ -135,7 +135,7 @@ function validate(userInput){  //validate all user input before submit
 
 // making refresh button responsive
 var refreshBtn  = document.getElementById("refresh-btn");
-refreshBtn.addEventListener("click",fetchContacts());
+refreshBtn.addEventListener("click",fetchContacts);
 
 
 //add button uses submitForm
