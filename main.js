@@ -61,6 +61,7 @@ function editContacts(){
 
 }
 document.getElementById("submitForm-edit").addEventListener("click",submitFormEdit);
+
 function submitFormEdit(e){
     e.preventDefault(); //prevent reloading
     const formEdit = new FormData(document.querySelector('#editForm'));
@@ -83,6 +84,9 @@ function submitFormEdit(e){
             homeLink();
         }
     })
+}
+function editContact(id){
+    window.location.href = 'edit.html';
 }
 
 /*Add page */
@@ -115,9 +119,10 @@ function submitFormAdd(e){
 
 }
 
-function editContact(id){
-    window.open("edit.html?id=" + id, "_self");
-
+document.getElementById("addContact").addEventListener("click",addContact);
+//button uses onclick
+function addContact(){
+    window.location.href = 'add.html';
 }
 
 function getID(){
@@ -129,6 +134,39 @@ function getID(){
     const params = new URLSearchParams(window.location.search);
     return params.get("id");
 }*/
+
+
+// making refresh button responsive
+var refreshBtn  = document.getElementById("refresh-btn");
+refreshBtn.addEventListener("click",fetchContacts);
+
+/*add api function*/
+function fetchContacts(){
+    fetch(rootPath + "controller/get-contacts/")
+    .then(function(response){ /*call back function*/
+        return response.json();
+    })
+    .then(function(data){
+        displayOutput(data); /*make new helper function to prevent complex function*/
+        //console.log(data);
+    })
+}
+function displayOutput(data){ //data is the object
+/*display as a table format*/
+output = "<table>";
+for(a in data){  /*iterate through object array*/
+    output += `
+        <tr onclick="editContact(${data[a].id})">
+            <td><img src="${rootPath}controller/uploads/${data[a].avatar}" width="40px"/></td>
+            <td> <h5> ${data[a].firstname} </h5> </td>
+            <td> <h5> ${data[a].lastname} </h5> </td>
+        </tr>
+    `
+}
+output += "</table>";
+document.getElementById("table").innerHTML = output;
+
+}
 
 
 function validate(userInput){  //validate all user input before submit
@@ -165,43 +203,4 @@ function validate(userInput){  //validate all user input before submit
     return true;
 }
 
-// making refresh button responsive
-var refreshBtn  = document.getElementById("refresh-btn");
-refreshBtn.addEventListener("click",fetchContacts);
-
-
-/*add api function*/
-function fetchContacts(){
-    fetch(rootPath + "controller/get-contacts/")
-    .then(function(response){ /*call back function*/
-        return response.json();
-    })
-    .then(function(data){
-        displayOutput(data); /*make new helper function to prevent complex function*/
-        //console.log(data);
-    })
-}
-function displayOutput(data){ //data is the object
-/*display as a table format*/
-output = "<table>";
-for(a in data){  /*iterate through object array*/
-    output += `
-        <tr onclick="editContact(${data[a].id})">
-            <td><img src="${rootPath}controller/uploads/${data[a].avatar}" width="40px"/></td>
-            <td> <h5> ${data[a].firstname} </h5> </td>
-            <td> <h5> ${data[a].lastname} </h5> </td>
-        </tr>
-    `
-}
-output += "</table>";
-document.getElementById("table").innerHTML = output;
-
-}
-//button uses onclick
-function addContact(){
-    window.open("add.html", "_self");
-}
 /*document.addEventListener("DOMContentLoaded", function () {*/
-
-
-
