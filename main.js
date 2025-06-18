@@ -1,24 +1,4 @@
 
-var id = getID();
-function getID(){
-    var url = window.location.href;
-    var position = url.search("=");
-    var id = url.slice(position +1);
-    return id;
-}
-
-
-function getID(){
-    var url = window.location.href;
-    var position = url.search("id=");
-    var id = url.slice(position +1);
-    return id;
-}
-
-
-
-
-
 function validate(userInput){  //validate all user input before submit
     if( !userInput.checkValidity()){
         document.getElementById(userInput.id + "-error").innerHTML = userInput.validationMessage;
