@@ -58,9 +58,9 @@ function displayContactinfo(){
 }
 
 //make contact editable 
-document.getElementById("editPage").addEventListener("click",editContact);
+document.getElementById("editPage").addEventListener("click",editContacts);
 
-function editContact(){
+function editContacts(){
     document.getElementById("name").readOnly = false;
     document.getElementById("surname").readOnly = false;
     document.getElementById("email").readOnly = false;
