@@ -2,10 +2,11 @@
 
 var deleteBtn = document.getElementById("delete");
 deleteBtn.addEventListener("click", deleteContact);
+
 function deleteContact(){
     var confirmDel = confirm("Delete user ?");
     if(confirmDel){
-        fetch(rootPath + 'controller/delete-contact/?=' +id)
+        fetch(rootPath + 'controller/delete-contact/?id=' +id)
         .then(function(response){
             return response.text();
         })
@@ -27,10 +28,12 @@ function editContact(id){
     window.open("edit.html?id=" + id, "_self");
 
 }
+
 var id = getID();
+
 function getID(){
     var url = window.location.href;
-    var position = url.search("=");
+    var position = url.search("id=");
     var id = url.slice(position +1);
     return id;
 }
@@ -169,7 +172,7 @@ function homeLink(){
 
 /*add api function*/
 function fetchContacts(){
-    fetch(rootPath + "contoller/get-contacts/")
+    fetch(rootPath + "controller/get-contacts/")
     .then(function(response){ /*call back function*/
         return response.json();
     })
