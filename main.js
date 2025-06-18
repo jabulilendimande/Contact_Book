@@ -49,8 +49,8 @@ function homeLink(){
 document.getElementById("editPage").addEventListener("click",editContacts);
 
 function editContacts(){
-    document.getElementById("name").readOnly = false;
-    document.getElementById("surname").readOnly = false;
+    document.getElementById("firstname").readOnly = false;
+    document.getElementById("lastname").readOnly = false;
     document.getElementById("email").readOnly = false;
     document.getElementById("phone").readOnly = false;
 
