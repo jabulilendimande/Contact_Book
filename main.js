@@ -52,7 +52,7 @@ function displayContactinfo(){
     ` 
     document.getElementById("avatarImage").innerHTML = avatarImg;
     document.getElementById("name").value = `${data[0].firstname}`;
-    document.getElementById("surname").value = `${data[0].lasttname}`;
+    document.getElementById("surname").value = `${data[0].lastname}`;
     document.getElementById("email").value = `${data[0].email}`;
     document.getElementById("phone").value = `${data[0].mobile}`;
 }
@@ -81,13 +81,13 @@ function submitFormEdit(e){
     fetch(rootPath + 'controller/edit-contact',{
         method:'POST',
         headers:{'Accept': 'application/json, *.*'},
-        body: formAdd
+        body: formEdit
     })
     .then( function(response){
         return response.text();
     }) 
     .then(function(data){
-        if(data=="1"){
+        if(data==="1"){
             alert("Contact edited.");
             homeLink();
         }else{
@@ -223,8 +223,9 @@ function addContact(){
 
 var middle = document.getElementById('middle');
 var upper = document.getElementById('upper');
-function getMiidle(){
-    if(grade=middle){
+
+function getMiddle(){
+    if(grade===middle){
 
     }
     fetch()
