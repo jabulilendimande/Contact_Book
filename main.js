@@ -47,9 +47,7 @@ function getContact(){
     })
 }
 function displayContactinfo(){
-    avatarImg =`
-        <img src=" ${rootPath}controller/uploads/${data[0].avatar} width="200""/>
-    ` 
+    avatarImg =`<img src=" ${rootPath}controller/uploads/${data[0].avatar} width="200""/>`; 
     document.getElementById("avatarImage").innerHTML = avatarImg;
     document.getElementById("name").value = `${data[0].firstname}`;
     document.getElementById("surname").value = `${data[0].lastname}`;
