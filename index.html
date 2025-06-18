@@ -52,9 +52,11 @@
         </footer>
 
         <script>
-            // making refresh button responsive
-        document.getElementById("refresh-btn").addEventListener("click",fetchContacts);
-        
+            
+        // making refresh button responsive
+        var refreshBtn  = document.getElementById("refresh-btn");
+        refreshBtn.addEventListener("click",fetchContacts);
+
             /*add api function*/
             function fetchContacts(){
                 fetch(rootPath + "controller/get-contacts/")
@@ -82,9 +84,30 @@
             document.getElementById("table").innerHTML = output;
 
             }
+        document.getElementById("addContact").addEventListener("click",addContact);
+            //button uses onclick
             function addContact(){
-                window.open("add.html", "_self");
+                window.location.href = 'add.html';
             }
+
+        var id = getID();
+        function getContact(){
+            fetch(rootPath+'controller/get-contacts/?id='+id)
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(data){
+                displayContactinfo(data);
+            })
+        }
+        function displayContactinfo(data){
+            avatarImg =`<img src=" ${rootPath}controller/uploads/${data[0].avatar}" width="200"/>`; 
+            document.getElementById("avatarImage").innerHTML = avatarImg;
+            document.getElementById("firstname").value = `${data[0].firstname}`;
+            document.getElementById("lastname").value = `${data[0].lastname}`;
+            document.getElementById("email").value = `${data[0].email}`;
+            document.getElementById("phone").value = `${data[0].mobile}`;
+        }
         </script>
     </body>
 </html>

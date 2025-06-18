@@ -51,6 +51,8 @@
 
 
     <script>
+        document.getElementById("submitForm-edit").addEventListener("click",submitFormEdit);
+
         function submitFormEdit(e){
             e.preventDefault(); //prevent reloading
             const formEdit = new FormData(document.querySelector('#editForm'));
@@ -81,6 +83,7 @@ document.getElementById("homeLink").addEventListener("click",homeLink);
         function homeLink(){
             window.location.href = 'index.html';
         }
+
 //make contact editable 
 document.getElementById("editPage").addEventListener("click",editContacts);
 
@@ -110,8 +113,8 @@ document.getElementById("editPage").addEventListener("click",editContacts);
                 <img src=" ${rootPath}controller/uploads/${data[0].avatar}" width="200"/>
             ` 
             document.getElementById("avatarImage").innerHTML = avatarImg;
-            document.getElementById("name").value = `${data[0].firstname}`;
-            document.getElementById("surname").value = `${data[0].lasttname}`;
+            document.getElementById("firstname").value = `${data[0].firstname}`;
+            document.getElementById("lastname").value = `${data[0].lastname}`;
             document.getElementById("email").value = `${data[0].email}`;
             document.getElementById("phone").value = `${data[0].mobile}`;
         }
@@ -134,6 +137,9 @@ deleteBtn.addEventListener("click", deleteContact);
                     }
                 })
             }
+        }
+        function editContact(id){
+            window.location.href = 'edit.html';
         }
     </script>
     </body>

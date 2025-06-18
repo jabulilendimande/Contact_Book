@@ -44,10 +44,7 @@
         <script>
         //add button uses submitForm
         document.getElementById("submitForm-add").addEventListener("click",submitFormAdd);     
-        document.getElementById("submitForm-add").addEventListener("click",submitFormAdd);
-        function homeLink(){
-            window.open("index.html","_self");
-        }
+        
         function submitFormAdd(e){ 
             e.preventDefault();
             const formAdd = new FormData(document.querySelector('#main-user'));
@@ -71,10 +68,13 @@
                 }
             })
         }
+    document.getElementById("homeLink").addEventListener("click",homeLink);
+    
         function homeLink(){
             window.open("index.html","_self");
         }
 
+        
     </script>
        
     </body>
